@@ -1,8 +1,8 @@
 import java.util.Scanner;
 import java.util.Random;
 /* Future Features:
-A randomizer to select the computer's move, a 1 in 3
-A way to convert the number rolled to the computer's move, currently have no ideas
+A way to convert the number rolled to the computer's move (found solution but need to understand)
+Assign the inputs to a number value and find an equation that computes it correctly, (modulus)
 */
 public class RockPaperScissors {
     public static void main(String[] args) {
@@ -14,11 +14,7 @@ public class RockPaperScissors {
         String UserMove = reader.nextLine();
 
         Random NumberGenerator = new Random();
-        int ComputerMove = NumberGenerator.nextInt(100) + 1;
+        int ComputerMove = NumberGenerator.nextInt(3) + 1;
 
-        if (UserMove.equals("Rock") && ComputerMove == 1) {
-            System.out.println("Your move: Rock");
-            System.out.println("Computer Move: " +  ComputerMove);
-        }
     }
 }
