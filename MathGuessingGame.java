@@ -7,19 +7,21 @@ class MathGuessingGame {
         int min = 0; //recommended to be zero, untested situations where it isn't zero
         int max = 100;
         int guesses = ((max / 10) - 1); //make this 1 less than you actually want
-        int attempts = 1; //counts attempts until correct guess
-        Random rand = new Random(); //Randomizer, to make the game  unpredictable
-        int answer = rand.nextInt(100) + 1;
+        int attempts = 1; //counts attempts until correct guess (do not manipulate)
+        Random rand = new Random(); //Randomizer, to make the game different every round
+        int answer = rand.nextInt(100) + 1; //edit only the number in parenthesis
 
         System.out.println("Welcome to the Number Guessing Game!\n");
         System.out.println("I've picked a number for you to guess");
         System.out.println("The number is between " + min + " and " + max);
 
+        //Creating the scanner that runs the game
         Scanner reader = new Scanner(System.in);
         System.out.println("You have " + (guesses + 1) + " guesses left.");
         System.out.println("Enter guess number: ");
         int response = reader.nextInt();
 
+        //Basic gameplay loop, runs through a checklist, letters break it
         while (guesses >= 0) {
             if (guesses == 0) {
                 System.out.println("You have encountered an error or ran out of guesses");
