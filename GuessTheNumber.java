@@ -1,11 +1,11 @@
 import java.util.Scanner;
 import java.util.Random;
-//Feature to allow the user to choose the range of numbers at initialization and start of future rounds
+//Feature to allow the user to choose the range of numbers at initialization and start of future rounds, default is 100 but can be changed to anything up to 10,000. Need to make a formula for number of guesses to balance difficulty 
 public class GuessTheNumber {
     public static void main(String[] args) {
         //initial game values, need to edit looped ones when changing these
         int min = 0; //Recommended to be zero
-        int max = 10 + 1; //1st is the desired input, 2nd because later functions do not include the end points
+        int max = 100 + 1; //1st is the desired input, 2nd because later functions do not include the end points
         int guesses = 4; //make 1 more than desired value
         int attempts = 1; //do not edit, counts attempt till game completion
         Random randomizer = new Random();
@@ -26,7 +26,7 @@ public class GuessTheNumber {
             //When the user continues to play again after a win
             if (userinput == -1) {
                 min = 0; //Recommended to be zero
-                max = 10;
+                max = 100;
                 guesses = 4; //make 1 more than desired value
                 attempts = 1; //do not edit, counts attempt till game completion
                 answer = randomizer.nextInt(max); //edit max value to edit answer
