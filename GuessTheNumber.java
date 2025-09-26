@@ -1,17 +1,12 @@
 import java.util.Scanner;
 import java.util.Random;
-//Will be the rewrite of NumberGuessing because it's getting too complicated
-/*
-Initialize variables first time outside 'while' and have a thing at the beginning to reset them
-blocks for when number is above/below max and min, below max but above answer, above min but below answer,
- when user says -1 (continue game) and -2 (end game), when guesses = 0, when they guess the correct answer
- */
+//Feature to allow the user to choose the range of numbers at initialization and start of future rounds
 public class GuessTheNumber {
     public static void main(String[] args) {
         //initial game values, need to edit looped ones when changing these
         int min = 0; //Recommended to be zero
-        int max = 10;
-        int guesses = 3; //make 1 less than desired value
+        int max = 10 + 1; //1st is the desired input, 2nd because later functions do not include the end points
+        int guesses = 4; //make 1 more than desired value
         int attempts = 1; //do not edit, counts attempt till game completion
         Random randomizer = new Random();
         int answer = randomizer.nextInt(max) + 1; //edit max value to edit answer
@@ -19,7 +14,7 @@ public class GuessTheNumber {
 
         System.out.println("Welcome to the Number Guessing Game!\n");
         System.out.println("I've picked a number for you to guess");
-        System.out.println("The number is between " + min + " and " + max);
+        System.out.println("The number is between " + min + " and " + max + " (0 and 11 are not valid inputs)");
         System.out.println("You have " + (guesses) + " guesses left.");
         System.out.println("Enter guess number: ");
 
@@ -27,7 +22,72 @@ public class GuessTheNumber {
         int userinput = inputreader.nextInt();
 
         while (continuegame) {
-
+            //Starts with end conditions then goes to regular gameplay
+            //When the user continues to play again after a win
+            if (userinput == -1) {
+                min = 0; //Recommended to be zero
+                max = 10;
+                guesses = 4; //make 1 more than desired value
+                attempts = 1; //do not edit, counts attempt till game completion
+                answer = randomizer.nextInt(max); //edit max value to edit answer
+                System.out.println("\nThe number is between " + min + " and " + max + " (0 and 11 are not valid inputs)");
+                System.out.println("You have " + (guesses) + " guesses remaining");
+                System.out.println("Enter guess number: ");
+                userinput = inputreader.nextInt();
+            }
+            //when user chooses to end the game after a win
+            else if (userinput == -2) {
+                System.out.println("\nYou have chosen to end the game.");
+                System.out.println("Thank you for playing!");
+                continuegame = false;
+            }
+            else if (userinput == -3) { //developer thing to check variables before use
+                System.out.println("Minimum: " + min);
+                System.out.println("Maximum: " + max);
+                System.out.println("Attempts: " + attempts);
+                System.out.println("Guesses: " + guesses);
+                System.out.println("Answer: " + answer);
+                continuegame = false;
+            }
+            //guess is outside the range of acceptable guesses
+            else if (userinput > max || userinput < min) {
+                attempts ++;
+                guesses --;
+                System.out.println("\nGuesses must be between " + min + " and  " + max);
+                System.out.println("You have " + (guesses) + " guesses remaining");
+                userinput = inputreader.nextInt();
+            }
+            //guess is above previous minimum but less than the answer
+            else if (userinput > min && userinput < answer) {
+                attempts ++;
+                guesses --;
+                min = userinput;
+                System.out.println("\nGuess a higher number!");
+                System.out.println("You have " + (guesses) + " guesses remaining");
+                System.out.println("High guess: " + max);
+                System.out.println("Low guess: " + min);
+                userinput = inputreader.nextInt();
+            }
+            //guess is below the previous maximum but greater than the answer
+            else if (userinput <max && userinput > answer) {
+                attempts ++;
+                guesses --;
+                max = userinput;
+                System.out.println("\nGuess a lower number!");
+                System.out.println("You have " + (guesses) + " guesses remaining");
+                System.out.println("High guess: " + max);
+                System.out.println("Low guess: " + min);
+                userinput = inputreader.nextInt();
+            }
+            //when the correct answer is guessed
+            else if (userinput == answer) {
+                attempts ++;
+                guesses --;
+                System.out.println("\nYou have guessed the number!" + " (" + answer + ")");
+                System.out.println("You took " + attempts + " attempts!");
+                System.out.println("Do you wish to play again? (-1 = Yes, -2 = No");
+                userinput = inputreader.nextInt();
+            }
         }
     }
 }
