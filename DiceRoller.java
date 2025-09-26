@@ -1,8 +1,10 @@
 import java.util.Scanner;
 /*Future Features:
-An if statement with else ifs to have all possible options that ends in rolling the dice
-allow multiple types of dice to be rolled and show the math calculations that happen
- */
+ability to roll multiple types of die at once
+dice sides defaults to 6 and number of dice defaults to 1
+ability to roll up to 100 of each dice
+an infinite game until the user ends it
+a breakdown showing the math behind the final calculation (each die type added together) */
 public class DiceRoller {
     public static void main(String[] args) {
         Scanner InputReader = new Scanner(System.in);
