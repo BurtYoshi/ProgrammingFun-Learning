@@ -21,7 +21,7 @@ public class GuessTheNumber {
         System.out.println("You have " + (guesses) + " guesses left.");
         System.out.println("Enter guess number: ");
 
-        //Creationo of the scanner and start of the loop
+        //Creation of the scanner and start of the loop
         Scanner inputreader = new Scanner(System.in);
         int userinput = inputreader.nextInt();
 
