@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.Random;
-//add guesses formula and test game with new max chosen by player
+
 public class GuessTheNumber {
     public static void main(String[] args) {
         //initial game values, need to edit looped ones when changing these
@@ -21,19 +21,21 @@ public class GuessTheNumber {
         System.out.println("You have " + (guesses) + " guesses left.");
         System.out.println("Enter guess number: ");
 
+        //Creationo of the scanner and start of the loop
         Scanner inputreader = new Scanner(System.in);
         int userinput = inputreader.nextInt();
 
         while (continuegame) { //Starts with end conditions then goes to regular gameplay
             //When the user continues to play again after a win
             if (userinput == -1) {
-                min = 1; //Recommended to be one
+                min = 1;
                 max = 100;
-                guesses = 5; //make 1 more than desired value
+                guesses = 5;
                 attempts = 0;
                 answer = randomizer.nextInt(max); //edit max value to edit answer
                 System.out.println("\nTyping -1 at any time restarts the game");
                 System.out.println("Typing -2 at any time ends the game\n");
+                System.out.println("Typing -3 at any time will let you change the value of max");
                 System.out.println("The number is between " + min + " and " + max);
                 System.out.println("You have " + (guesses) + " guesses remaining");
                 System.out.println("Enter guess number: ");
@@ -52,7 +54,10 @@ public class GuessTheNumber {
                 userinput = inputreader.nextInt();
             }
             else if (userinput == -3) { //user wants to change max value
+                guesses = 5;
+                min = 1;
                 System.out.println("What do you want the new max value to be? (must be less than 10,000)");
+                System.out.println("You will have to change this value at the start of every round, sorry");
                 System.out.println("Please write the value as a negative, it will be converted ");
                 max = Math.abs(inputreader.nextInt());
                 System.out.println("New max:" + max);
