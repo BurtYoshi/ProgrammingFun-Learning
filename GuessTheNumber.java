@@ -12,8 +12,8 @@ public class GuessTheNumber {
         int answer = randomizer.nextInt(max) + 1; //edit max value to edit answer
         boolean continuegame = true;
 
-        System.out.println("Welcome to the Number Guessing Game!\n");
-        System.out.println("I've picked a number for you to guess");
+        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("I've picked a number for you to guess\n");
         System.out.println("The number is between " + min + " and " + max + " (0 and 11 are not valid inputs)");
         System.out.println("You have " + (guesses) + " guesses left.");
         System.out.println("Enter guess number: ");
