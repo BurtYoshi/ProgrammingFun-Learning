@@ -3,17 +3,16 @@ import java.util.Random;
 
 public class GuessTheNumber {
     public static void main(String[] args) {
-        //initial game values, need to edit looped ones when changing these
-        int min = 1; //Recommended to be zero
+        int min = 1;
         int max = 100;
-        int guesses = 5; //make 1 more than desired value
+        int guesses = 5;
         int attempts = 0;
         Random randomizer = new Random();
-        int answer = randomizer.nextInt(max) + 1; //edit max value to edit answer
+        int answer = randomizer.nextInt(max) + 1;
         boolean continuegame = true;
 
         //Initial instructions, not repeated in the loop
-        System.out.println("Welcome to the Number Guessing Game!");
+        System.out.println("Welcome to Guess the Number!");
         System.out.println("I've picked a number for you to guess\n");
         System.out.println("Typing -1 at any time will restart the game");
         System.out.println("Typing -2 at any time will end the game\n");
@@ -44,7 +43,7 @@ public class GuessTheNumber {
             //when user chooses to end the game
             else if (userinput == -2) {
                 System.out.println("\nYou have chosen to end the game.");
-                System.out.println("Thank you for playing!");
+                System.out.println("Thank you for playing Guess the Number!");
                 continuegame = false;
             }
             //When the user runs out of guesses
@@ -71,6 +70,7 @@ public class GuessTheNumber {
                 System.out.println("Attempts: " + attempts);
                 System.out.println("Guesses: " + guesses);
                 System.out.println("Answer: " + answer);
+                System.out.println("Continue the game? " + continuegame);
                 continuegame = false;
             }
             //guess is outside the range of acceptable guesses
