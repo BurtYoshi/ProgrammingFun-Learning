@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 /*Future Features:
 an infinite game until the user ends it (later development thing)
 ability to roll multiple types of dice at the same time*/
@@ -25,6 +25,7 @@ public class DiceRoller {
             else if (UserInput == -2) {
                 System.out.println("\nYou have chosen to end the game");
                 System.out.println("Thank you for playing!");
+                InputReader.close();
                 System.exit(0);
             }
             else if (UserInput > 100 || UserInput < 0) {
@@ -50,6 +51,7 @@ public class DiceRoller {
             else if (UserInput == -2) {
                 System.out.println("\nYou have chosen to end the game");
                 System.out.println("Thank you for playing!");
+                InputReader.close();
                 System.exit(0);
             }
             else if (UserInput > 100 || UserInput < 0) {

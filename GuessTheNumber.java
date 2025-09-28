@@ -1,5 +1,5 @@
-import java.util.Scanner;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GuessTheNumber {
     public static void main(String[] args) {
@@ -112,6 +112,7 @@ public class GuessTheNumber {
                 System.out.println("Do you wish to play again? (-1 = Yes, -2 = No");
                 userinput = inputreader.nextInt();
             }
+            inputreader.close();
         }
     }
 }
