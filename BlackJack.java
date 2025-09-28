@@ -1,19 +1,32 @@
 import java.util.Random;
-/*
+/* Future Features:
 Randomize the Cards of human and computer
-converter for the number rolled when random stuff is calculated to cards then print them
-see if an object system would work, original then cloning extra cards and their setup
-*/
+Allow ace card to be either 11 or 1 depending on whether hand total is above 21
+Draws cards for the user when prompted but draws all of the computer's cards when user choice time is over */
 class BlackJack {
     public static void main(String[] args) {
-        //creation of the two arrays for the creation of the deck
-        String [] Suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
-        String [] Numbers = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
-        for (int i = 0; i < 53; i++) { //index full when at 52, essentially a deck then
-
-        //creation of randomizer to draw a random card from the deck later
-        //currently a fragment, will be actually developed later in time
-        Random CardDrawer = new Random();
+        //creation of the  arrays for the deck
+        String [] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
+        String [] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String [] deck = new String[suits.length*ranks.length];
+        int index = 0;
+        //actual creation of the deck
+        for (String suit : suits)  {
+            for (String rank : ranks) {
+                deck[index] = rank + " of " + suit;
+                //System.out.println(rank + " of " + suit); //Test to make sure loop works properly
+                index++;
+            }
         }
+        Random CardDrawer = new Random();
+        //Creation of the player's and computer's hand
+        String [] userhand = new String[5];
+        String [] computerhand = new String[5];
+
+        //Code to test if the array is working properly
+        String UserCard1 = deck[CardDrawer.nextInt(53)];
+        String ComputerCard1 = deck[CardDrawer.nextInt(53)];
+        System.out.println(UserCard1);
+        System.out.println(ComputerCard1);
     }
 }
