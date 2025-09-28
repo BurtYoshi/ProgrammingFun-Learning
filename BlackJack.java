@@ -1,12 +1,10 @@
-
 import java.util.Random;
-
 /*
 Randomize the Cards of human and computer
 converter for the number rolled when random stuff is calculated to cards then print them
 see if an object system would work, original then cloning extra cards and their setup
 */
-class BlackJackEasyMode {
+class BlackJack {
     public static void main(String[] args) {
         //creation of the two arrays for the creation of the deck
         String [] Suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
