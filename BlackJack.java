@@ -1,7 +1,7 @@
 import java.util.Random;
 /* Future Features:
-Randomize the Cards of human and computer
-Allow ace card to be either 11 or 1 depending on whether hand total is above 21
+Randomize the human and player cards
+general rules such as ace cards being either 11 or 1 depending on whether hand total is above 21
 Draws cards for the user when prompted but draws all of the computer's cards when user choice time is over */
 class BlackJack {
     public static void main(String[] args) {
