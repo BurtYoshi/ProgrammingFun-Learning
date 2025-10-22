@@ -3,11 +3,12 @@ import java.util.Scanner;
 
 public class DiceRoller {
     public static void main(String[] args) {
-        //Declaration of the games default variables
-        boolean AmountSelection = true; //Three booleans are phases of the game
+        //Declaration of the games default variables, booleans control game phases
+        boolean AmountSelection = true;
         boolean SideSelection = true;
         boolean CalculationTime = true;
-        boolean LoopGame = true; //THE NEW CONDITION CREATED
+        boolean LoopGame = true;
+        boolean PlayAgain = true;
         int NumberOfDice = 1;
         int DiceSides = 6;
         int RollTotal;
@@ -17,12 +18,16 @@ public class DiceRoller {
         Scanner InputReader = new Scanner(System.in);
         int UserInput = InputReader.nextInt();
 
-        while (LoopGame) { //does not have any end conditions, fix this, NEW CODE ADDITION
+        while (LoopGame) { 
             while (AmountSelection) { //Start of the first phase of the game
+            PlayAgain = true; //allows  game to end after first loop, infinite otherwise
                 if (UserInput == -1) { //Confirmation block, sends the code to the next loop afterwards
-                    System.out.println("You have confirmed your selection, it cannot be changed");
+                    System.out.println("You have confirmed your selection, it can no longer be changed");
                     AmountSelection = false;
                 } else if (UserInput == -2) {
+                    System.out.println("How many dice do you want to roll? (maximum of 100 dice)");
+                    UserInput = InputReader.nextInt();
+                } else if (UserInput == -3) {
                     System.out.println("\nYou have chosen to end the game");
                     System.out.println("Thank you for playing!");
                     InputReader.close();
@@ -33,7 +38,7 @@ public class DiceRoller {
                 } else if (0 < UserInput && UserInput <= 100) {
                     NumberOfDice = UserInput;
                     System.out.println("\nYou have chosen to roll " + NumberOfDice + " dice");
-                    System.out.println("Type '-1' to confirm decision and -2 to end the game");
+                    System.out.println("Type '-1' to confirm decision, -2 to change decision, and -3 to end the game");
                     UserInput = InputReader.nextInt();
                 }
             }
@@ -46,6 +51,9 @@ public class DiceRoller {
                     System.out.println("You have confirmed your selection, it cannot be changed");
                     SideSelection = false;
                 } else if (UserInput == -2) {
+                    System.out.println("\nHow many sides do you want each dice to have? (maximum of 100 sides)");
+                    UserInput = InputReader.nextInt();
+                } else if (UserInput == -3) {
                     System.out.println("\nYou have chosen to end the game");
                     System.out.println("Thank you for playing!");
                     InputReader.close();
@@ -56,7 +64,7 @@ public class DiceRoller {
                 } else if (0 < UserInput && UserInput <= 100) {
                     DiceSides = UserInput;
                     System.out.println("\nYou have chosen to have " + DiceSides + " sides on each dice");
-                    System.out.println("Type '-1' to confirm decision and -2 to end the game");
+                    System.out.println("Type '-1' to confirm decision, -2 to change decision, and -3 to end the game");
                     UserInput = InputReader.nextInt();
                 }
             }
@@ -72,20 +80,28 @@ public class DiceRoller {
                     System.out.println("Die " + (i + 1) + ": " + roll);
                 }
                 System.out.println("\nThe result of rolling the " + NumberOfDice + " with " + DiceSides + " sides is...");
-                System.out.println(RollTotal + " (" + NumberOfDice + "*" + DiceSides + ")");
+                System.out.println(RollTotal + " (" + NumberOfDice + "x" + DiceSides + ")");
                 System.out.print("The average roll with these conditions: = ");
                 System.out.print(NumberOfDice * (DiceSides / 2));
-
-                //NEW CODE, CHECK ACTIVELY
+                CalculationTime = false;
+            }
+            while (PlayAgain) { //need to set this true at start
+                System.out.println("\nWould you like to play again? (-1 = yes, -2 = no)");
+                UserInput = InputReader.nextInt();
                 if (UserInput == -1) {
-                    CalculationTime = false;
-                    AmountSelection = true; //should allow the loop
+                    System.out.println("\nHow many dice do you want to roll? (maximum of 100 dice)");
+                    AmountSelection = true;
+                    SideSelection = true;
+                    CalculationTime = true;
+                    UserInput = InputReader.nextInt();
+                    PlayAgain = false;
                 } else if (UserInput == -2) {
-                    CalculationTime = false;
+                    System.out.println("\nThank you for playing DiceRoller!");
+                    PlayAgain = false;
                     LoopGame = false;
+                    InputReader.close();
                 }
             }
         }
-        System.out.println("Thank you for playing a dice game!");
     }
 }
