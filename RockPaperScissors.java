@@ -9,8 +9,12 @@ public class RockPaperScissors {
         //Initial setup of the game
         System.out.println("Welcome to the game, a game as old as time...");
         System.out.println("Rock(1), Paper(2), Scissors(3)!");
+        System.out.println("Rock(1), Paper(2), Scissors(3)!");
         System.out.println("Choose a move.");
         Scanner InputReader = new Scanner(System.in);
+        int UserInput = InputReader.nextInt();
+        boolean Continue = true;
+        boolean Results = true;
         int UserInput = InputReader.nextInt();
         boolean Continue = true;
         boolean Results = true;
