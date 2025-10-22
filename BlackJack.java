@@ -1,32 +1,46 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 /* Future Features:
-Randomize the Cards of human and computer
-Allow ace card to be either 11 or 1 depending on whether hand total is above 21
+general rules such as ace cards being either 11 or 1 depending on whether hand total is above 21
 Draws cards for the user when prompted but draws all of the computer's cards when user choice time is over */
-class BlackJack {
+//Figure out how to score the cards, use index number maybe?
+public class BlackJack {
+        //Set up for creation of player and computer's hands
     public static void main(String[] args) {
-        //creation of the  arrays for the deck
-        String [] suits = {"Hearts", "Clubs", "Diamonds", "Spades"};
-        String [] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-        String [] deck = new String[suits.length*ranks.length];
-        int index = 0;
-        //actual creation of the deck
-        for (String suit : suits)  {
-            for (String rank : ranks) {
-                deck[index] = rank + " of " + suit;
-                //System.out.println(rank + " of " + suit); //Test to make sure loop works properly
-                index++;
+        //creation of the arrays for the deck, need to change these to lists later
+        ArrayList<String> suit = new ArrayList<>(Arrays.asList("Diamonds", "Hearts", "Clubs", "Spades"));
+        ArrayList<String> rank = new ArrayList<>(Arrays.asList("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"));
+        ArrayList<String> deck = new ArrayList<>();
+        for (String suits : suit) {
+            for (String ranks : rank) {
+                deck.add(ranks + " of " + suits);
+                //System.out.println(ranks + " of " + suits);
             }
         }
+        //Set up for creation of the player and computer's hands
         Random CardDrawer = new Random();
-        //Creation of the player's and computer's hand
-        String [] userhand = new String[5];
-        String [] computerhand = new String[5];
-
-        //Code to test if the array is working properly
-        String UserCard1 = deck[CardDrawer.nextInt(53)];
-        String ComputerCard1 = deck[CardDrawer.nextInt(53)];
-        System.out.println(UserCard1);
-        System.out.println(ComputerCard1);
+        ArrayList<String> PlayerHand = new ArrayList<>();
+        ArrayList<String> ComputerHand = new ArrayList<>();
+        int RandomIndex;
+        String DrawnCard;
+        //Creation of player and computer hand, going to be changed, this is just to make sure drawing is correct
+        for (int i = 0; i < 5; i++) {
+            RandomIndex = CardDrawer.nextInt(deck.size());
+            DrawnCard = deck.remove(RandomIndex);
+            PlayerHand.add(DrawnCard);
+        }
+        for (int i = 0; i < 5; i++) {
+            RandomIndex = CardDrawer.nextInt(deck.size());
+            DrawnCard = deck.remove(RandomIndex);
+            ComputerHand.add(DrawnCard);
+        }
+        System.out.println("Computer's current hand: " + ComputerHand);
+        System.out.println("Player's current hand: " + PlayerHand);
+        //True start of the game
+    }
+}
+        System.out.println("Computer's current hand: " + ComputerHand);
+        System.out.println("Player's current hand: " + PlayerHand);
     }
 }

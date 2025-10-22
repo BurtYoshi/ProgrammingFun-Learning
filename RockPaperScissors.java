@@ -22,6 +22,28 @@ public class RockPaperScissors {
                 String ComputerMove;
                 String PlayerMove;
                 String[] Moves = {"Rock", "Paper", "Scissors"};
+        System.out.println("Rock (1), Paper (2), Scissors (3)!");
+        System.out.println("Choose a move.");
+        Scanner InputReader = new Scanner(System.in);
+        int UserInput = InputReader.nextInt();
+
+        //if statements to do game because I cannot figure out the incredibly short solution
+        if (UserInput == 1) {
+            System.out.println("You have chosen rock");
+            System.out.println("The computer has chosen...");
+        }
+        else if (UserInput == 2) {
+            System.out.println("You have chosen paper");
+            System.out.println("The computer has chosen...");
+        }
+        else if (UserInput == 3) {
+            System.out.println("You have chosen scissors");
+            System.out.println("The computer has chosen...");
+        }
+
+        Random Randomizer = new Random();
+        int ComputerMove = Randomizer.nextInt(3)+ 1;
+        System.out.println(ComputerMove);
 
                 //Determines and stores the player and computer's moves
                 PlayerMove = Moves[UserInput - 1];

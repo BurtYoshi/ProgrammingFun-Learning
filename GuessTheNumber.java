@@ -5,13 +5,13 @@ public class GuessTheNumber {
     public static void main(String[] args) {
         int min = 1;
         int max = 100;
-        int guesses = 5;
+        int guesses = 6;
         int attempts = 0;
         Random randomizer = new Random();
         int answer = randomizer.nextInt(max) + 1;
         boolean continuegame = true;
 
-        //Initial instructions, not repeated in the loop
+        //initial instructions, not repeated in the loop
         System.out.println("Welcome to Guess the Number!");
         System.out.println("I've picked a number for you to guess\n");
         System.out.println("Typing -1 at any time will restart the game");
@@ -20,16 +20,15 @@ public class GuessTheNumber {
         System.out.println("You have " + (guesses) + " guesses left.");
         System.out.println("Enter guess number: ");
 
-        //Creation of the scanner and start of the loop
+        //creation of the scanner and start of the loop
         Scanner inputreader = new Scanner(System.in);
         int userinput = inputreader.nextInt();
 
-        while (continuegame) { //Starts with end conditions then goes to regular gameplay
-            //When the user continues to play again after a win
-            if (userinput == -1) {
+        while (continuegame) { //starts with end conditions then goes to regular gameplay
+            if (userinput == -1) { //when the player continues to play again after a win
                 min = 1;
                 max = 100;
-                guesses = 5;
+                guesses = 6;
                 attempts = 0;
                 answer = randomizer.nextInt(max); //edit max value to edit answer
                 System.out.println("\nTyping -1 at any time restarts the game");
@@ -40,21 +39,22 @@ public class GuessTheNumber {
                 System.out.println("Enter guess number: ");
                 userinput = inputreader.nextInt();
             }
-            //when user chooses to end the game
-            else if (userinput == -2) {
+            else if (userinput == -2) { //when the player chooses to end the game
                 System.out.println("\nYou have chosen to end the game.");
                 System.out.println("Thank you for playing Guess the Number!");
-                continuegame = false;
+                inputreader.close();
+                System.exit(0);
             }
-            //When the user runs out of guesses
-            if (guesses == 0) {
+            if (guesses == 0) { //when player runs out of guesses
                 System.out.println("You have ran out of guesses");
                 System.out.println("Do you wish to play again? (-1 = Yes, -2 = No");
                 userinput = inputreader.nextInt();
             }
-            else if (userinput == -3) { //user wants to change max value
-                guesses = 5;
+            else if (userinput == -3) { //when the player wants to change max value
+                guesses = 6;
                 min = 1;
+                attempts = 0;
+                answer = randomizer.nextInt(max);
                 System.out.println("What do you want the new max value to be? (must be less than 10,000)");
                 System.out.println("You will have to change this value at the start of every round, sorry");
                 System.out.println("Please write the value as a negative, it will be converted ");
@@ -64,25 +64,14 @@ public class GuessTheNumber {
                 System.out.println("You have " + (guesses) + " guesses remaining");
                 userinput = inputreader.nextInt();
             }
-            else if (userinput == -4) { //developer thing to check variables before use
-                System.out.println("Minimum: " + min);
-                System.out.println("Maximum: " + max);
-                System.out.println("Attempts: " + attempts);
-                System.out.println("Guesses: " + guesses);
-                System.out.println("Answer: " + answer);
-                System.out.println("Continue the game? " + continuegame);
-                continuegame = false;
-            }
-            //guess is outside the range of acceptable guesses
-            else if (userinput > max || userinput < min) {
+            else if (userinput > max || userinput < min) { //guess is outside the range of acceptable guesses
                 attempts ++;
                 guesses --;
                 System.out.println("\nGuesses must be between " + min + " and  " + max);
                 System.out.println("You have " + (guesses) + " guesses remaining");
                 userinput = inputreader.nextInt();
             }
-            //guess is above previous minimum but less than the answer
-            else if (userinput >= min && userinput < answer) {
+            else if (userinput >= min && userinput < answer) { //guess is above previous minimum but less than the answer
                 attempts ++;
                 guesses --;
                 min = userinput;
@@ -92,8 +81,7 @@ public class GuessTheNumber {
                 System.out.println("Low guess: " + min);
                 userinput = inputreader.nextInt();
             }
-            //guess is below the previous maximum but greater than the answer
-            else if (userinput <= max && userinput > answer) {
+            else if (userinput <= max && userinput > answer) { //guess is below the previous maximum but greater than the answer
                 attempts ++;
                 guesses --;
                 max = userinput;
@@ -103,8 +91,7 @@ public class GuessTheNumber {
                 System.out.println("Low guess: " + min);
                 userinput = inputreader.nextInt();
             }
-            //when the correct answer is guessed
-            else if (userinput == answer) {
+            else if (userinput == answer) { //when the correct answer is guessed
                 attempts ++;
                 guesses --;
                 System.out.println("\nYou have guessed the number!" + " (" + answer + ")");
@@ -112,7 +99,6 @@ public class GuessTheNumber {
                 System.out.println("Do you wish to play again? (-1 = Yes, -2 = No");
                 userinput = inputreader.nextInt();
             }
-            inputreader.close();
         }
     }
 }
