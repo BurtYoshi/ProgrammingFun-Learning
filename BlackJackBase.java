@@ -35,7 +35,6 @@ class BlackJackBase {
             DrawnCard = deck.remove(RandomIndex);
             ComputerHand.add(DrawnCard);
         }
-
         System.out.println("Computer's current hand: " + ComputerHand);
         System.out.println("Player's current hand: " + PlayerHand);
     }
