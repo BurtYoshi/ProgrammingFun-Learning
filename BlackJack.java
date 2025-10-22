@@ -4,7 +4,7 @@ import java.util.Random;
 /* Future Features:
 general rules such as ace cards being either 11 or 1 depending on whether hand total is above 21
 Draws cards for the user when prompted but draws all of the computer's cards when user choice time is over */
-//Figure out how to score the cards, use index number maybe?
+//Figure out how to score the cards, use index number maybe? */
 public class BlackJack {
         //Set up for creation of player and computer's hands
     public static void main(String[] args) {
@@ -37,9 +37,6 @@ public class BlackJack {
         }
         System.out.println("Computer's current hand: " + ComputerHand);
         System.out.println("Player's current hand: " + PlayerHand);
-        //True start of the game
-    }
-}
         System.out.println("Computer's current hand: " + ComputerHand);
         System.out.println("Player's current hand: " + PlayerHand);
     }
