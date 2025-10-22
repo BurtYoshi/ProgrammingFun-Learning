@@ -8,15 +8,28 @@ public class RockPaperScissors {
     public static void main(String[] args) {
         //Initial setup of the game
         System.out.println("Welcome to the game, a game as old as time...");
-        System.out.println("Rock, Paper, Scissors!");
+        System.out.println("Rock (1), Paper (2), Scissors (3)!");
         System.out.println("Choose a move.");
-
         Scanner InputReader = new Scanner(System.in);
-        String UserMove = InputReader.nextLine();
+        int UserInput = InputReader.nextInt();
 
+        //if statements to do game because I cannot figure out the incredibly short solution
+        if (UserInput == 1) {
+            System.out.println("You have chosen rock");
+            System.out.println("The computer has chosen...");
+        }
+        else if (UserInput == 2) {
+            System.out.println("You have chosen paper");
+            System.out.println("The computer has chosen...");
+        }
+        else if (UserInput == 3) {
+            System.out.println("You have chosen scissors");
+            System.out.println("The computer has chosen...");
+        }
 
-        Random NumberGenerator = new Random();
-        int ComputerMove = NumberGenerator.nextInt(3) + 1; //prevents a zero being returned
+        Random Randomizer = new Random();
+        int ComputerMove = Randomizer.nextInt(3)+ 1;
+        System.out.println(ComputerMove);
 
         InputReader.close(); //Apparently a resource risk when not closed
     }
