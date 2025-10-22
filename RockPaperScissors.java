@@ -1,9 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-/* Future Features: (This shall be worked on later when I can understand the code that is required to do this)
-A way to convert the number rolled to the computer's move (found solution but need to understand)
-Assign the inputs to a number value and find an equation that computes it correctly, (modulus)
-*/
+
 public class RockPaperScissors {
     public static void main(String[] args) {
         //Initial setup of the game

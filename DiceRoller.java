@@ -1,8 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-/*Future Features:
-an infinite game until the user ends it (later development thing)
-ability to roll multiple types of dice at the same time*/
+
 public class DiceRoller {
     public static void main(String[] args) {
         //Declaration of the games default variables
