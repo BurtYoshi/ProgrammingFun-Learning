@@ -32,10 +32,13 @@ public class RockPaperScissors {
                 UserInput = InputReader.nextInt();
             } else {
                 System.out.println("You have found a new error, please report this");
+                System.exit(0);
             }
         }
         while (Results) {
-            System.out.println("Delete this later bud");
+            //System.out.println("You chose: " + PlayerMove);
+            //System.out.println("The Computer Chose: " + ComputerMove);
+            Results = false;
         }
         InputReader.close();
     }

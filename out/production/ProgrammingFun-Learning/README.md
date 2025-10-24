@@ -7,4 +7,4 @@ Future features to add:
 
  (RPS) Infinite game, score tracking wins and losses, calculate winner of each round,
 
- (BJ) How to score the cards (index #?), draw cards when prompted by the user and decide score in real time, basic game rules coded
+ (BJ) How to score the cards (index #?), decide score in real time, basic game rules coded
