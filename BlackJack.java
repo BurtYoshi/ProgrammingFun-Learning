@@ -1,5 +1,6 @@
 import java.util.*; //Simplifies 4 imports into 1 import
-
+//Scoring: Parse the strings in the deck and maybe create another deck to compare to and depending
+//on the index number +1 it calculates the value of the hand (without Ace score variation)
 public class BlackJack {
     public static void main(String[] args) {
         //creation of arrays for deck
@@ -7,7 +8,6 @@ public class BlackJack {
         ArrayList<String> rank = new ArrayList<>(Arrays.asList("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"));
         ArrayList<String> deck = new ArrayList<>();
         String UserInput;
-        //variables for game phases
         int PlayerWins = 0;
         int ComputerWins = 0;
         boolean LoopGame = true;
