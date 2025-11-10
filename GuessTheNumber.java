@@ -47,7 +47,8 @@ public class GuessTheNumber {
             }
             if (guesses == 0) { //when player runs out of guesses
                 System.out.println("You have ran out of guesses");
-                System.out.println("Do you wish to play again? (-1 = Yes, -2 = No");
+                System.out.println("The correct answer was: " + answer);
+                System.out.println("Do you wish to play again? (-1 = Yes, -2 = No)");
                 userinput = inputreader.nextInt();
             }
             else if (userinput == -3) { //when the player wants to change max value
