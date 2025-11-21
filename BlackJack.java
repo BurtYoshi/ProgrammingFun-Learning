@@ -8,8 +8,8 @@ public class BlackJack {
         ArrayList<String> rank = new ArrayList<>(Arrays.asList("Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"));
         ArrayList<String> deck = new ArrayList<>();
         String UserInput;
-        int PlayerWins = 0;
-        int ComputerWins = 0;
+        int PlayerWins = 0; //consider deleting
+        int ComputerWins = 0; //consider deleting
         boolean LoopGame = true;
         boolean PlayerDrawing = true;
         boolean ComputerDraw = true;
@@ -20,18 +20,20 @@ public class BlackJack {
         int RandomIndex;
         String DrawnCard;
 
+
         for (String suits : suit) {
             for (String ranks : rank) {
                 deck.add(ranks + " of " + suits);
                 //System.out.println(ranks + " of " + suits); tests creation of deck, not needed
             }
         }
+        System.out.println("Welcome to the game of Black Jack...");
         while (LoopGame) {
             //variables here reset at start of loop, others don't
             ArrayList<String> PlayerHand = new ArrayList<>();
             ArrayList<String> ComputerHand = new ArrayList<>();
             while (PlayerDrawing) {
-                System.out.println("Hit or Stand");
+                System.out.println("\nHit or Stand?");
                 UserInput = InputReader.nextLine();
                 //Draws card when "hit", ends when "stand"
                 if (UserInput.equalsIgnoreCase("Hit")) {
@@ -56,9 +58,17 @@ public class BlackJack {
                 ComputerDraw = false;
                 Endgame = true;
             }
+            System.out.println("Computer's final hand: " + ComputerHand);
+            System.out.println("Player's final hand: " + PlayerHand);
             while (Endgame) {
-                System.out.println("Computer's final hand: " + ComputerHand);
-                System.out.println("Player's final hand: " + PlayerHand);
+                CardEnums CardValues = CardEnums.JACK;
+                CardEnums CardValues2 = CardEnums.ACE;
+
+                System.out.println(CardValues);
+                System.out.println(CardValues2);
+
+                // START OF THE OLD END SYSTEM, ENUM BEING USED BEFORE
+
                 System.out.println("Did you win? (No auto scoring yet)");
                 UserInput = InputReader.nextLine();
                 if (UserInput.equalsIgnoreCase("Yes")) {
@@ -76,7 +86,7 @@ public class BlackJack {
                     PlayerDrawing = true;
                     Endgame = false;
                 } else if (UserInput.equalsIgnoreCase("No")) {
-                    System.out.println("Thank you for playing BlackJack!");
+                    System.out.println("Thank you for playing Black Jack!");
                     LoopGame = false;
                     Endgame = false;
                     InputReader.close();
