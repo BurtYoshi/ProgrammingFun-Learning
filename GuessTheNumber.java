@@ -1,6 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
-
+//Future thing: make negative inputs not count against the player
 public class GuessTheNumber {
     public static void main(String[] args) {
         int min = 1;
@@ -23,6 +23,7 @@ public class GuessTheNumber {
         //creation of the scanner and start of the loop
         Scanner inputreader = new Scanner(System.in);
         int userinput = inputreader.nextInt();
+        String continuethegameyn = inputreader.nextLine(); //string to replace negative inputs for non guessing inputs
 
         while (continuegame) { //starts with end conditions then goes to regular gameplay
             //irregular conditions, loop and ending game
@@ -40,7 +41,9 @@ public class GuessTheNumber {
                 System.out.println("Thank you for playing Guess The Number!");
                 inputreader.close();
                 System.exit(0);
-            } 
+            } else if (userinput == -3) { //Testing the end conditions and loops
+                System.out.println("The answer is... " + answer);
+            }
             //regular gameplay conditions
             if (guesses == 0) { //when player runs out of guesses
                 System.out.println("You have ran out of guesses");
