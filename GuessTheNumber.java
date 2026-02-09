@@ -1,6 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 //Loop does not work properly
+//Commented lines are not required but could be used for testing
 public class GuessTheNumber {
     public static void main(String[] args) {
         int min = 1;
