@@ -20,7 +20,6 @@ public class BlackJack {
         int RandomIndex;
         String DrawnCard;
 
-
         for (String suits : suit) {
             for (String ranks : rank) {
                 deck.add(ranks + " of " + suits);
@@ -64,18 +63,6 @@ public class BlackJack {
             System.out.println("Computer's final hand: " + ComputerHand);
             System.out.println("Player's final hand: " + PlayerHand);
             while (Endgame) {
-                //Parse hand for a value listed in enum, find index number and add to score
-                //switch statements depending on value to add to player score
-
-
-                //Test of Enum
-                CardEnums CardValues = CardEnums.JACK;
-                CardEnums CardValues2 = CardEnums.ACE;
-                System.out.println(CardValues);
-                System.out.println(CardValues2);
-
-                // START OF THE OLD END SYSTEM, ENUM BEING USED BEFORE
-
                 //Bad scoring system (manual win or lose)
                 System.out.println("Did you win? (No auto scoring yet)");
                 UserInput = InputReader.nextLine();
@@ -88,7 +75,6 @@ public class BlackJack {
                     System.out.println("Better luck next time!");
                     System.out.println("Current record: " + PlayerWins + " to " + ComputerWins);
                 }
-
                 //Whether or not to loop the game
                 System.out.println("Do you want to play again?");
                 UserInput = InputReader.nextLine();
