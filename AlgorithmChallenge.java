@@ -19,7 +19,6 @@ public class AlgorithmChallenge {
         System.out.print("\nChoose a challenge from the list above: ");
         UserInput = InputReader.nextInt();
 
-
         while (SelectionTime) {
             //loop section of phase 1
             if (UserInput < 0 || UserInput > 4) {
