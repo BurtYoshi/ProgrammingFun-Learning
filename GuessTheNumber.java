@@ -40,7 +40,7 @@ public class GuessTheNumber {
                 System.out.println("Thank you for playing Guess The Number!");
                 inputreader.close();
                 System.exit(0);
-            } 
+            }
             //regular gameplay conditions
             if (guesses == 0) { //when player runs out of guesses
                 System.out.println("You have ran out of guesses");
