@@ -1,28 +1,22 @@
 import java.util.*;
-//
+//V1.1 update: (cleaning up and simplifying code further)
 public class AlgorithmChallenge {
     public static void main(String[] args) {
-        int UserInput;
+        int UserInput = -1;
         boolean GameTime = true;
-        boolean GameLooped = false;
+        boolean GameLooped = true;
         Scanner InputReader = new Scanner(System.in);
-
-        System.out.println("Welcome to the Algorithm Challenge!\n");
-        System.out.println("1. Find Factors\n2. Find Even Digits");
-        System.out.println("3. Hide Vowels\n4. Reverse String");
-        System.out.print("\nChoose a challenge from the list above: ");
-        UserInput = InputReader.nextInt();
+        System.out.println("Welcome to the Algorithm Challenge!");
 
         while (GameTime) {
-            //new section to try and fix the instructions
-            if (GameLooped) {
-                System.out.println("\n\n1. Find Factors\n2. Find Even Digits");
-                System.out.println("3. Hide Vowels\n4. Reverse String");
-                System.out.print("\nChoose a challenge from the list above: ");
-                UserInput = InputReader.nextInt();
-            }
+            System.out.println("\n1. Find Factors\n2. Find Even Digits");
+            System.out.println("3. Hide Vowels\n4. Reverse String");
+            System.out.println("(Any other integer inputs will end the game)");
+            System.out.print("\nChoose a challenge from the list above: ");
+            UserInput = InputReader.nextInt();
+            
             if (UserInput < 1 || UserInput > 4) {
-                System.out.println("You have ended the game");
+                System.out.println("You chosen to end the game");
                 GameTime = false;
             } else if (UserInput == 1) {
                 System.out.println("Find factors has been chosen");
@@ -65,7 +59,6 @@ public class AlgorithmChallenge {
                 }
                 System.out.print("Result: " + ReverseString);
             }
-            GameLooped = true;
         }
         System.out.println("\nThank you for playing!");
         }
