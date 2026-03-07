@@ -1,7 +1,6 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
-public class GuessTheNumber {
+public class GuessTheNumberOld {
     public static void main(String[] args) {
         int min = 1;
         int max = 100;
