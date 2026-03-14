@@ -1,9 +1,8 @@
 import java.util.*;
 import java.lang.Math;
-//Version 0.2.0, addition of square root
-//Generating an error when the second round occurs
+//Version 0.2.1, addition of square root (2.0), bug fixes + square root only requires 1 input (2.1)
+//Errors: None discovered :)
 class BasicCalculator {
-    //methods used by the class
     private double add(double a, double b) {
         return a + b;
     } private double subtract(double a, double b) {
@@ -23,7 +22,6 @@ class BasicCalculator {
     public static void main(String[] args) {
         BasicCalculator calc = new BasicCalculator();
         Scanner InputReader = new Scanner(System.in);
-
         boolean Loop = true;
         while (Loop) {
             String Operation = "";
@@ -35,7 +33,10 @@ class BasicCalculator {
             if (Operation.equalsIgnoreCase("quit")) {
                 System.exit(1);
             } UserInput1 = InputReader.nextDouble();
-            UserInput2 = InputReader.nextDouble();
+            if (!Operation.equalsIgnoreCase("square root")) {
+                UserInput2 = InputReader.nextDouble();
+            }
+            InputReader.nextLine();
             //switch statement for operations
             switch (Operation.toLowerCase()) {
                 case "add":
